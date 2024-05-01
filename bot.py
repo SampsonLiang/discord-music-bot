@@ -29,8 +29,9 @@ async def join(ctx):
             await channel.connect()
             await ctx.send(f'Joined `{channel.name}`, type **!help** for options.')
 
-        except Exception:
+        except Exception as e:
             await ctx.send("Something went wrong...could not connect to the voice channel.")
+            print(e)
 
 @bot.command()
 async def leave(ctx):

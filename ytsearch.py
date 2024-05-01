@@ -8,7 +8,8 @@ def get_video(search):
     options = {'format': 'bestaudio/best', 'noplaylist': True, 'extractor-args': 'youtube:player_client=web'}
     try:
         info = YoutubeDL(options).extract_info(f'ytsearch:{search}', download = False)['entries'][0]
-    except Exception:
+    except Exception as e:
+        print(e)
         return
     
     url = info['url']
